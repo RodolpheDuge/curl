@@ -2449,7 +2449,7 @@ static ParameterError opt_string(struct OperationConfig *config,
     err = getstr(&config->haproxy_clientip, nextarg, DENY_BLANK);
     break;
   case C_MAX_COOKIE_HEADER_LEN: /* --max-cookie-header-len */
-    err = GetSizeParameter(nextarg, "max-cookie-header-len", &value);
+    err = GetSizeParameter(nextarg, &value);
     if (!err)
       config->max_cookie_header_len = value;
     break;
