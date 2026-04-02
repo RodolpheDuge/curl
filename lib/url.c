@@ -441,6 +441,7 @@ void Curl_init_userdefined(struct Curl_easy *data)
   set->ws_raw_mode = FALSE;
   set->ws_no_auto_pong = FALSE;
 #endif
+  set->max_cookie_header_len = MAX_COOKIE_HEADER_LEN;
 }
 
 /* easy->meta_hash destructor. Should never be called as elements

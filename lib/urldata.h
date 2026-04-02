@@ -1337,6 +1337,7 @@ struct UserDefined {
   BIT(post301); /* keep POSTs as POSTs after a 301 request */
   BIT(post302); /* keep POSTs as POSTs after a 302 request */
   BIT(post303); /* keep POSTs as POSTs after a 303 request */
+  unsigned short max_cookie_header_len;
 };
 
 #ifndef CURL_DISABLE_MIME

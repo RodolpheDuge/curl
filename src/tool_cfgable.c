@@ -53,6 +53,7 @@ struct OperationConfig *config_alloc(void)
   config->ftp_skip_ip = TRUE;
   config->file_clobber_mode = CLOBBER_DEFAULT;
   config->upload_flags = CURLULFLAG_SEEN;
+  config->max_cookie_header_len = -1;
   curlx_dyn_init(&config->postdata, MAX_FILE2MEMORY);
   return config;
 }

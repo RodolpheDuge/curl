@@ -66,6 +66,7 @@ struct OperationConfig {
   char *referer;
   char *query;
   curl_off_t max_filesize;
+  int max_cookie_header_len;
   char *output_dir;
   char *headerfile;
   char *ftpport;

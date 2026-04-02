@@ -94,7 +94,7 @@ struct CookieInfo {
 /* Maximum size for an outgoing cookie line libcurl will use in an http
    request. This is the default maximum length used in some versions of Apache
    httpd. */
-#define MAX_COOKIE_HEADER_LEN 8190
+#define MAX_COOKIE_HEADER_LEN 32168 
 
 /* Maximum number of cookies libcurl will send in a single request, even if
    there might be more cookies that match. One reason to cap the number is to

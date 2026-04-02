@@ -206,6 +206,7 @@ static const struct LongShort aliases[]= {
   {"mail-rcpt",                  ARG_STRG, ' ', C_MAIL_RCPT},
   {"mail-rcpt-allowfails",       ARG_BOOL, ' ', C_MAIL_RCPT_ALLOWFAILS},
   {"manual",                     ARG_BOOL, 'M', C_MANUAL},
+  {"max-cookie-header-len",      ARG_STRG, ' ', C_MAX_COOKIE_HEADER_LEN},
   {"max-filesize",               ARG_STRG, ' ', C_MAX_FILESIZE},
   {"max-redirs",                 ARG_STRG, ' ', C_MAX_REDIRS},
   {"max-time",                   ARG_STRG, 'm', C_MAX_TIME},
@@ -2446,6 +2447,11 @@ static ParameterError opt_string(struct OperationConfig *config,
     break;
   case C_HAPROXY_CLIENTIP: /* --haproxy-clientip */
     err = getstr(&config->haproxy_clientip, nextarg, DENY_BLANK);
+    break;
+  case C_MAX_COOKIE_HEADER_LEN: /* --max-cookie-header-len */
+    err = GetSizeParameter(nextarg, "max-cookie-header-len", &value);
+    if (!err)
+      config->max_cookie_header_len = value;
     break;
   case C_MAX_FILESIZE: /* --max-filesize */
     err = GetSizeParameter(nextarg, &value);

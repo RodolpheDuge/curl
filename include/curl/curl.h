@@ -2258,6 +2258,8 @@ typedef enum {
   /* set TLS supported signature algorithms */
   CURLOPT(CURLOPT_SSL_SIGNATURE_ALGORITHMS, CURLOPTTYPE_STRINGPOINT, 328),
 
+  CURLOPT(CURLOPT_MAX_COOKIE_HEADER_LEN, CURLOPTTYPE_LONG, 329),
+
   CURLOPT_LASTENTRY /* the last unused */
 } CURLoption;
 

@@ -2384,7 +2384,7 @@ CURLcode operate(int argc, argv_item_t argv[])
             global->current = global->first;
 
             /* now run! */
-            result = run_all_transfers(share, result);
+	    result = run_all_transfers(share, result);
 
             if(global->ssl_sessions && feature_ssls_export) {
               CURLcode r2 = tool_ssls_save(global->first, share,

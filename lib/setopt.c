@@ -848,7 +848,10 @@ static CURLcode setopt_long_net(struct Curl_easy *data, CURLoption option,
   struct UserDefined *s = &data->set;
 
   switch(option) {
-  case CURLOPT_DNS_CACHE_TIMEOUT:
+   case CURLOPT_MAX_COOKIE_HEADER_LEN:
+     s->max_cookie_header_len = arg == -1 ? MAX_COOKIE_HEADER_LEN: arg;
+   break;
+   case CURLOPT_DNS_CACHE_TIMEOUT:
     if(arg != -1)
       return setopt_set_timeout_sec(&s->dns_cache_timeout_ms, arg);
     s->dns_cache_timeout_ms = -1;

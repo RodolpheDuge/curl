@@ -504,6 +504,7 @@ static CURLcode ssl_setopts(struct OperationConfig *config, CURL *curl)
 static CURLcode cookie_setopts(struct OperationConfig *config, CURL *curl)
 {
   CURLcode result = CURLE_OK;
+
   if(config->cookies) {
     struct dynbuf cookies;
     struct curl_slist *cl;
@@ -524,6 +525,7 @@ static CURLcode cookie_setopts(struct OperationConfig *config, CURL *curl)
       }
     }
 
+    my_setopt_long(curl, CURLOPT_MAX_COOKIE_HEADER_LEN, config->max_cookie_header_len);
     result = my_setopt_str(curl, CURLOPT_COOKIE, curlx_dyn_ptr(&cookies));
     curlx_dyn_free(&cookies);
     if(result)
@@ -541,6 +543,7 @@ static CURLcode cookie_setopts(struct OperationConfig *config, CURL *curl)
     MY_SETOPT_STR(curl, CURLOPT_COOKIEJAR, config->cookiejar);
 
   my_setopt_long(curl, CURLOPT_COOKIESESSION, config->cookiesession);
+  my_setopt_long(curl, CURLOPT_MAX_COOKIE_HEADER_LEN, config->max_cookie_header_len);
 
   return result;
 }

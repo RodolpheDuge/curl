@@ -2542,6 +2542,7 @@ static CURLcode http_cookies(struct Curl_easy *data,
   CURLcode result = CURLE_OK;
   char *addcookies = NULL;
   bool linecap = FALSE;
+
   if(data->set.str[STRING_COOKIE] &&
      !Curl_checkheaders(data, STRCONST("Cookie")))
     addcookies = data->set.str[STRING_COOKIE];
@@ -2571,7 +2572,7 @@ static CURLcode http_cookies(struct Curl_easy *data,
                 break;
             }
             add = strlen(co->name) + strlen(co->value) + 1;
-            if(clen + add >= MAX_COOKIE_HEADER_LEN) {
+            if(clen + add >= data->set.max_cookie_header_len) {
               infof(data, "Restricted outgoing cookies due to header size, "
                     "'%s' not sent", co->name);
               linecap = TRUE;
